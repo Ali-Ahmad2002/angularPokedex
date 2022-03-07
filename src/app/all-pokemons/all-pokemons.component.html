@@ -1,0 +1,18 @@
+<div class="mainContainer">
+    <div class="allPokeContainer" *ngFor="let pokemon of service.allCurrentPokemons; let i=index" >
+
+        <div class="pokemonChild" [style.background-color]="service.getBgColors(pokemon)" (click)="openDialog(pokemon)">
+            <h2>{{ pokemon.name }}</h2>
+            <span> #{{ pokemon.id }} </span>
+            <p> {{ pokemon.types[0].type.name }} </p>
+            <img src="{{ pokemon.sprites.other.dream_world.front_default }}">
+        </div>
+        
+    </div>
+
+    
+</div>
+
+<div class="btnCon">
+    <button (click)="loadMore()" mat-button>Mehr Laden</button>
+</div>

@@ -1,0 +1,43 @@
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 7rem;
+}
+
+.allPokeContainer {
+}
+
+.pokemonChild {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+    img {
+        height: 150px;
+    }
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+    background-size: cover;
+}
+
+.btnCon {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    height: 5rem;
+    button {
+        border: 1px solid #00000075;
+        width: 16rem;
+    }
+}

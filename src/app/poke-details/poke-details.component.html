@@ -1,0 +1,24 @@
+<div class="mainContainer" [style.background-color]="service.getBgColors(service.pokeDetail)">
+    <div class="headCard">
+        <h1> {{ service.pokeDetail.name }} </h1>
+        <div class="headCardChild">
+            <span> #{{ service.pokeDetail.id }} </span>
+            <p> {{ service.pokeDetail.types[0].type.name }} </p>
+        </div>
+        <img src="{{ service.pokeDetail.sprites.other.dream_world.front_default }}">
+    </div>
+
+    <div class="abilities">
+        <span> Abilities: {{ showAbilitys(service.pokeDetail.abilities) }} </span>
+    </div>
+    
+    <div class="stats" *ngFor="let stats of service.pokeDetail.stats; let i=index">
+        <div class="statsText">
+            <span> {{ service.pokeDetail.stats[i].stat.name }}: </span>
+            <p> {{ service.pokeDetail.stats[i].base_stat }} </p>
+        </div>      
+        <mat-progress-bar mode="determinate" value="{{ service.pokeDetail.stats[i].base_stat }}"></mat-progress-bar>
+    </div>
+    
+   
+</div>
