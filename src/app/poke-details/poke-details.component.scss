@@ -4,9 +4,16 @@
     align-items: center;
     width: 600px;
     height: 800px;
-    padding: 1rem;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: -16px;
     img {
         height: 150px;
+        transition: all 75ms ease-in-out;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.12);
+        }
     }
     mat-progress-bar {
         height: 16px;
@@ -54,4 +61,75 @@
     p {
         margin: 0;
     }
+}
+
+.abMainCon {
+    display: flex;
+    width: 520px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 24px;
+    border: 1px solid #00000054;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 2px 0;
+    h3 {
+        margin: 0;
+        font-size: 24px;
+    }
+}
+
+.pad {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.abContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    span {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .mainContainer {
+        width: unset;
+        height: unset;
+        margin: -22px;
+        img {
+            height: 8em;
+        }
+        mat-progress-bar {
+            height: 1em;
+            width: 16em;
+        }
+    }
+    .abMainCon {
+        width: 100%;
+
+    }
+
+    .headCard {
+        margin-bottom: unset;
+        h1 {
+            font-size: 3em;
+        }
+    }
+    .headCardChild {
+        margin-bottom: 8px;
+        margin-top: unset;
+    }
+
+    .stats {
+        margin-bottom: 0.4em;
+    }
+
+    .statsText {
+        margin-bottom: 0.2em;
+    }
+
 }

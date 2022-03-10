@@ -3,9 +3,9 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 7rem;
-}
-
-.allPokeContainer {
+    // background-color: #8ab3ff47;
+    padding-left: 8rem;
+    padding-right: 8rem;
 }
 
 .pokemonChild {
@@ -17,8 +17,16 @@
     margin: 1rem;
     padding: 1rem;
     border-radius: 16px;
+    transition: all 75ms ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0px 8px 0;
+    }
     img {
         height: 150px;
+    }
+    h2 {
+        font-size: 1.5rem;
     }
 }
 
@@ -36,8 +44,10 @@
     justify-content: center;
     align-items: baseline;
     height: 5rem;
+    // background-color: #8ab3ff47;
     button {
         border: 1px solid #00000075;
         width: 16rem;
+        background-color: white;
     }
 }

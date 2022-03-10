@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
@@ -8,18 +8,13 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class HeaderComponent implements OnInit {
 
-  search: any;
+  value = '';
 
   constructor(public service: ApiServiceService) { }
+  @ViewChild('search') search: any;
 
   ngOnInit(): void {
   }
-
-  // searchPokemon() {
-  // }
-
-
-
 
 
 

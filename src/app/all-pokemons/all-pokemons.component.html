@@ -1,5 +1,5 @@
-<div class="mainContainer">
-    <div class="allPokeContainer" *ngFor="let pokemon of service.allCurrentPokemons; let i=index" >
+<div *ngIf="service.activeFilter" class="mainContainer" id="main">
+    <div class="allPokeContainer" *ngFor="let pokemon of service.allCurrentPokemons; let i=index">
 
         <div class="pokemonChild" [style.background-color]="service.getBgColors(pokemon)" (click)="openDialog(pokemon)">
             <h2>{{ pokemon.name }}</h2>
@@ -7,12 +7,24 @@
             <p> {{ pokemon.types[0].type.name }} </p>
             <img src="{{ pokemon.sprites.other.dream_world.front_default }}">
         </div>
-        
     </div>
+</div>
 
+<div *ngIf="!service.activeFilter" class="mainContainer">
+    <div *ngFor="let filter of service.pokemonFilter" >
+        <div class="allPokeContainer">
+            <div class="pokemonChild" [style.background-color]="service.getBgColors(filter)"
+                (click)="openDialog(filter)">
+                <h2>{{ filter.name }}</h2>
+                <span> #{{ filter.id }} </span>
+                <p> {{ filter.types[0].type.name }} </p>
+                <img src="{{ filter.sprites.other.dream_world.front_default }}">
+            </div>
+        </div>
+    </div>
     
 </div>
 
-<div class="btnCon">
-    <button (click)="loadMore()" mat-button>Mehr Laden</button>
+<div *ngIf="service.activeFilter" class="btnCon">
+    <button (click)="loadMore()" mat-button>Load more</button>
 </div>

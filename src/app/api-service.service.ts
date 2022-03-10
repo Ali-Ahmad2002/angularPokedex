@@ -10,12 +10,52 @@ export class ApiServiceService {
   bgColors: any;
   abilities: any;
 
+  pokemonFilter: any = [];
+
+  activeFilter = true;
+
+  // filteredPokemon: any;
+
   constructor() { }
 
+
+  /**
+   * function to get the Data from the Api
+   * @param id 
+   * @returns 
+   */
   getPokemon(id: number) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
   }
 
+
+  /**
+   * function to search a pokemon with the input field
+   * @param val 
+   */
+  searchPokemon(val: any) {
+    console.log("Search value: ", val);
+    let filter = val;
+    filter = filter.toLowerCase();
+    if (filter.length > 0) {
+      console.log("FILTER LENGTH > 0");
+      this.activeFilter = false;
+      console.log(filter);
+      let filteredPokemon = this.allCurrentPokemons.filter((pokemon: { name: string; }) => pokemon.name.startsWith(filter));
+      console.log('filter', filteredPokemon);
+      this.pokemonFilter = filteredPokemon;
+      console.log('pokemonFILTER', this.pokemonFilter);
+    } else {
+      this.activeFilter = true;
+    }
+  }
+
+
+  /**
+   * function to give the pokemon cards a individual background color by their type
+   * @param pokemon 
+   * @returns 
+   */
   getBgColors(pokemon: any) {
     let type = pokemon.types[0].type.name;
     if (type == 'grass') {
@@ -58,6 +98,5 @@ export class ApiServiceService {
       this.bgColors = '#ee99ac';
     }
     return this.bgColors;
-    console.log(this.bgColors)
   }
 }

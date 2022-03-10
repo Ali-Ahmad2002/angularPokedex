@@ -22,28 +22,40 @@ export class AllPokemonsComponent implements OnInit {
     this.loadPokemon();
   }
 
+
+  /**
+   * function to load all pokemons from the Api
+   */
   loadPokemon() {
     for (let i = this.start; i < this.stop; i++) {
       this.service.getPokemon(i).then(async (pokemon: any) => {
         let pokemonData = await pokemon.json();
         console.log(pokemonData);
         this.service.allCurrentPokemons.push(pokemonData);
-        let pokeType = pokemonData.types[0].type.name
-
       });
     }
   }
 
+
+  /**
+   * function to open a window with the details of the clicked pokemon
+   * @param poke 
+   */
   openDialog(poke: any) {
     this.dialog.open(PokeDetailsComponent);
     this.service.pokeDetail = poke;
     console.log(this.service.pokeDetail)
   }
 
+
+  /**
+   * function to load more pokemons
+   */
   loadMore() {
     this.start += 10;
     this.stop += 10;
     this.loadPokemon();
   }
+
 
 }

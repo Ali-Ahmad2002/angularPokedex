@@ -4,10 +4,19 @@
             <img src="assets/img/pokeball.png">
             <h1>Pokedex</h1>
         </div>
-    
-        <div class="search">
-            <input type="text" [ngModel]="search" id="idSearch" placeholder="search" >
+
+        <!-- <div class="search">
+            <input type="text" #search placeholder="search" (keydown)="service.searchPokemon(search.value)">
+        </div> -->
+        <div class="inputCon">
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Search pokemon</mat-label>
+                <input matInput #search type="text" [(ngModel)]="value"  (keyup)="service.searchPokemon(search.value)">
+                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
         </div>
+
     </div>
 </div>
-
