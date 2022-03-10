@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
@@ -8,13 +9,15 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class PokeDetailsComponent implements OnInit {
 
-  constructor(public service: ApiServiceService) { }
+  constructor(public service: ApiServiceService, public dialogRef: MatDialogRef<PokeDetailsComponent>) { }
   abilities: any;
 
   ngOnInit(): void {
   }
 
-  
+  onNoClick() {
+    this.dialogRef.close();
+  }
 
 }
 
